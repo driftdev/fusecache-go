@@ -1,18 +1,19 @@
-package resilicache
+package bastioncache
 
 import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/lithammer/shortuuid"
-	"github.com/redis/go-redis/v9"
-	"golang.org/x/sync/singleflight"
 	"log"
 	"math"
 	"math/rand"
 	"runtime/debug"
 	"sync"
 	"time"
+
+	"github.com/lithammer/shortuuid"
+	"github.com/redis/go-redis/v9"
+	"golang.org/x/sync/singleflight"
 )
 
 const locked = "LOCKED"

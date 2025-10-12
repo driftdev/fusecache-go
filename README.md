@@ -1,6 +1,6 @@
-# SuperCache Go
+# BastionCache Go
 
-SuperCache Go is a robust and versatile caching package for Go, compatible with various caching systems, including Redis, RedisCluster, ValKey, KeyDB, DragonflyDB, and Kvrocks. 
+BastionCache Go is a robust and versatile caching package for Go, compatible with various caching systems, including Redis, RedisCluster, ValKey, KeyDB, DragonflyDB, and Kvrocks. 
 It provides a comprehensive set of features to enhance the reliability and performance of your caching strategy.
 
 ## Features
@@ -22,23 +22,24 @@ It provides a comprehensive set of features to enhance the reliability and perfo
 To install SuperCache Go, use the following command:
 
 ```bash
-go get github.com/pixelbend/supercache-go
+go get github.com/arkamfahry/bastioncache-go
 ```
 
 ## Usage
 
-Here's a basic examples of how to use SuperCache Go.
- 
+Here's a basic examples of how to use BastionCache Go.
+
 ```go
 package main
 
 import (
 	"context"
 	"fmt"
-	"github.com/pixelbend/supercache-go"
-	"github.com/redis/go-redis/v9"
 	"log"
 	"time"
+
+	"github.com/arkamfahry/bastioncache-go"
+	"github.com/redis/go-redis/v9"
 )
 
 func main() {
@@ -54,8 +55,8 @@ func main() {
 		log.Fatalf("Error flushing DB: %v", err)
 	}
 
-	// Initialize SuperCache with Redis client and default options
-	cache := supercache.NewCache(rdb, resilicache.NewDefaultOptions())
+	// Initialize BastionCache with Redis client and default options
+	cache := bastioncache.NewCache(rdb, bastioncache.NewDefaultOptions())
 
 	// Set a key-value pair in the cache with a TTL of 10 seconds
 	err := cache.Set(context.Background(), "user:01J61BPPHMFH9VSF2T1R2ZXDA2", []byte("tester"), time.Second*10)
@@ -137,7 +138,7 @@ func main() {
 }
 ```
 
-Here's a basic examples of how to use ResiliCache TypedCache.
+Here's a basic examples of how to use BastionCache TypedCache.
 This leverages Go generics to enforce type safety, ensuring that only 
 specified types are stored and retried.
 
@@ -147,10 +148,11 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/driftdev/resilicache-go"
-	"github.com/redis/go-redis/v9"
 	"log"
 	"time"
+
+	"github.com/arkamfahry/bastioncache-go"
+	"github.com/redis/go-redis/v9"
 )
 
 func main() {
@@ -166,12 +168,12 @@ func main() {
 		log.Fatalf("Error flushing DB: %v", err)
 	}
 
-	// Initialize ResiliCache with Redis client and default options
-	cache := resilicache.NewCache(rdb, resilicache.NewDefaultOptions())
+	// Initialize BastionCache with Redis client and default options
+	cache := bastioncache.NewCache(rdb, bastioncache.NewDefaultOptions())
 
 	// Initialize a TypedCache instance with string as the value type
 	// This enforces type safety, ensuring that only strings are stored and retrieved from the cache
-	typedCache := resilicache.NewTypedCache[string](cache)
+	typedCache := bastioncache.NewTypedCache[string](cache)
 
 	// Set a key-value pair in the cache with a TTL of 10 seconds
 	err := typedCache.Set(context.Background(), "user:01J61BPPHMFH9VSF2T1R2ZXDA2", "tester", time.Second*10)

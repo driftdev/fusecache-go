@@ -1,11 +1,12 @@
-package resilicache
+package bastioncache
 
 import (
 	"context"
 	"errors"
-	"github.com/redis/go-redis/v9"
 	"runtime/debug"
 	"time"
+
+	"github.com/redis/go-redis/v9"
 )
 
 func now() int64 {

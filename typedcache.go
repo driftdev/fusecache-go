@@ -1,4 +1,4 @@
-package resilicache
+package bastioncache
 
 import (
 	"context"

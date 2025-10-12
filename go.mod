@@ -1,4 +1,4 @@
-module github.com/pixelbend/supercache-go
+module github.com/arkamfahry/bastioncache-go
 
 go 1.25.1
 
