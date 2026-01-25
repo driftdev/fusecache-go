@@ -1,6 +1,6 @@
 # BastionCache Go
 
-BastionCache Go is a robust and versatile caching package for Go, compatible with various caching systems, including Redis, RedisCluster, ValKey, KeyDB, DragonflyDB, and Kvrocks. 
+BastionCache Go is a robust and versatile caching package for Go, compatible with various caching systems, including Redis, RedisCluster, ValKey, KeyDB, DragonflyDB, and Apache Kvrocks. 
 It provides a comprehensive set of features to enhance the reliability and performance of your caching strategy.
 
 ## Features
